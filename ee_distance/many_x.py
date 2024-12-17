@@ -55,150 +55,46 @@ pard = {'l':1, 'lB':lB(T,b), 'kappa':kap(T,csmm,b), 'w2':0, 'w3':w3, 'pH':phval,
 
 # file to use pre-calculated two/three body terms
 #OBfile = None
-OBfile = "../out files/OB calc/OBfmt_5-1500.npy"
+OBfile = "OBfmt_5-1500.npy"
 
-# LL 28k set
-##seq_file = f"../out files/LL 30k sim/with T=37C/CNN custom/preds28k 1pt-pred 2pt-min w3=0.2/LL_w3{w3_str}_preds.csv"      # sequences and w2 values
-#seq_file = f"../out files/LL 30k sim/with T=37C/LL_8saltsel2_for_dij.csv"
-#ref_file = "../out files/LL 30k sim/LL28k_set.csv"      # sequences with reference Ree, and NC terminal information (if applicable)
-#out_file = f"../out files/LL 30k sim/w2_pred_x_NC_out_test_{w3_str}.csv"        # output file for calculated x, Ree using w2 from ML
-#out_file = f"../out files/LL 30k sim/with T=37C/LL_8saltsel2_w2pred_x_cs{csmm:}_{w3_str:}.csv"
-#
-##name_head = "names"
-##seq_head = "seqs"
-##w2_head = "true_w2"
-##w2_head = "pred_w2"
-#name_head = "seq_name"
-#seq_head = "fasta"
-##w2_head = "truew2_02"
-#w2_head = "predw2_02"
-#N_head = "N"
-#SCD_head = "SCD"
-#x_head = "x"
-#R_head = "Ree[nm]"
-#
-#ref_name_head = "seq_name"
-#ref_seq_head = "fasta"
-#ref_w2_head = 'w2'
-#ref_x_head = "x"
-#ref_R_head = "Ree / nm"     # reference Ree heading from input file (from Lindorff-Larsen)
-#ref_Rg_head = "Rg / nm"
-#
-#res_ref_R_head = "ref_" + R_head        # reference Ree heading used in results file
-#res_FE_head = "F/N"         # reference Free Energy (per monomer) for results file
-#
-#Nterm_head = "is_nterm"
-#Cterm_head = "is_cterm"
-#IDP_head = "is_idp"
-#
-#adjust_NC = True   # apply adjustments to N/C terminals according to spreadsheet?
-#incl_ref = True    # ensure reference file enabled by default
-#halfseq = False     # check half-segments ?  [Note: half sequence segments do not incorporate pH]
+# IDRome 28k set
+seq_file = "../IDRome_sequences/IDRome28k_w2preds_w302.csv"        # sequences and w2 values
+ref_file = "../IDRome_sequences/IDRome_28k.csv"      # sequences with reference Ree, and NC terminal information (if applicable)
+out_file = f"../out/IDRome_out_{w3_str}.csv"        # output file for calculated x, Ree using w2 from ML
 
-#salt_PH_fromfile = False
-#parinfo = False      # print parameter info with each sequence?
-
-
-# for set of wenwei..mittal 15k sequences!
-#S.amino_charges.update({'H':0.5})
-#adjust_NC = False
-#incl_ref = False
-#halfseq = False
-#salt_PH_fromfile = False
-#parinfo = False      # print parameter info with each sequence?
-#
-#seq_file = f"../out files/wenwei/w2 from F5 solver (Ree)/w3={w3}/M15k_w3{w3_str}_Ree_preds.csv"
-#ref_file = "../out files/wenwei/sequences_15k_ree.csv"
-#out_file = f"../out files/wenwei/w2 from F5 solver (Ree)/w3={w3}/M15k_w2ee_x_test_{w3_str}.csv"
-#
 #name_head = "names"
 #seq_head = "seqs"
-##w2_head = "true_w2"
+#w2_head = "true_w2"
 #w2_head = "pred_w2"
-#N_head = "N"
-#SCD_head = "SCD"
-#x_head = "x"
-#R_head = "Ree[nm]"
-#
-#ref_name_head = "INDEX"
-#ref_seq_head = "SEQUENCE"
-#ref_x_head = "x"
-#ref_R_head = "Ree"
-#ref_Rg_head = None
-#
-#res_ref_R_head = "ref_" + R_head        # reference Ree heading used in results file
-#res_FE_head = "F/N"         # reference Free Energy (per monomer) for results file
-
-# for set of sequences with experimental data (Rg)!
-#S.amino_charges.update({'H':0.5})
-#adjust_NC = True
-#incl_ref = False
-#halfseq = False
-#parinfo = True      # print parameter info with each sequence?
-#
-##salt_PH_fromfile = False     # use custom salt / pH values from sequence file ?  (different value for each sequence)
-#salt_PH_fromfile = True
-#salt_head = "salt"
-#ph_head = "pH"
-#
-##seq_file = f"../out files/PMML experiment/Rg_expdata_w2_rnd2.csv"
-#seq_file = f"../out files/PMML experiment/Rg_expdata_w2_rnd2-2.csv"
-#ref_file = None
-##out_file = f"../out files/PMML experiment/Rg_expdata_naive-cs0_M_02.csv"
-##out_file = f"../out files/PMML experiment/Rg_expdata_naive-cs0_LL_02.csv"
-##out_file = f"../out files/PMML experiment/Rg_expdata_naive_M_02.csv"
-##out_file = f"../out files/PMML experiment/Rg_expdata_naive_LL_02.csv"
-#out_file = f"../out files/PMML experiment/Rg_expdata_preds_M_02.csv"
-##out_file = f"../out files/PMML experiment/Rg_expdata_preds_LL_02.csv"
-#
-#name_head = "varient_name"
-#seq_head = "Sequence"
-#w2_head = "w2_preds_Mw302"
-##w2_head = "w2_preds_LLw302"
-#N_head = "N"
-#SCD_head = "SCD"
-#x_head = "x"
-#R_head = "Ree[nm]"
-#
-#ref_name_head = None
-#ref_seq_head = None
-#ref_x_head = None
-#ref_R_head = None
-#ref_Rg_head = None
-#
-#res_ref_R_head = "ref_" + R_head        # reference Ree heading used in results file
-#
-#res_FE_head = "F/N"         # reference Free Energy (per monomer) for results file
-
-# thermophile / mesophile set
-seq_file = f"../out files/thermo_meso/round 2 - Dec 2024/ML predicted w2/thermo_seqs_w2s.csv"      # sequences and w2 values
-#seq_file = f"../out files/thermo_meso/round 2 - Dec 2024/ML predicted w2/meso_seqs_w2s.csv"
-ref_file = None      # sequences with reference Ree, and NC terminal information (if applicable)
-out_file = f"../out files/thermo_meso/round 2 - Dec 2024/cs{csmm:} T{T:}/thermo_LL_x_out_{w3_str}.csv"        # output file for calculated x, Ree using w2 from ML
-#out_file = f"../out files/thermo_meso/round 2 - Dec 2024/cs{csmm:} T{T:}/meso_LL_x_out_{w3_str}.csv"
-
-name_head = "Index"
-seq_head = "Sequence"
-w2_head = "w2_preds_LLw302"
+name_head = "seq_name"
+seq_head = "fasta"
+#w2_head = "truew2_02"
+w2_head = "predw2_02"
 N_head = "N"
 SCD_head = "SCD"
 x_head = "x"
 R_head = "Ree[nm]"
 
-ref_name_head = None
-ref_seq_head = None
-ref_x_head = None
-ref_R_head = None
-ref_Rg_head = None
+ref_name_head = "seq_name"
+ref_seq_head = "fasta"
+ref_w2_head = 'w2'
+ref_x_head = "x"
+ref_R_head = "Ree / nm"     # reference Ree heading from input file (from Lindorff-Larsen)
+ref_Rg_head = "Rg / nm"
 
 res_ref_R_head = "ref_" + R_head        # reference Ree heading used in results file
 res_FE_head = "F/N"         # reference Free Energy (per monomer) for results file
 
-adjust_NC = False
-incl_ref = False
-halfseq = False
+Nterm_head = "is_nterm"
+Cterm_head = "is_cterm"
+IDP_head = "is_idp"
+
+adjust_NC = True   # apply adjustments to N/C terminals according to spreadsheet?
+incl_ref = True    # ensure reference file enabled by default
+halfseq = False     # check half-segments ?  [Note: half sequence segments do not incorporate pH]
+
 salt_PH_fromfile = False
-parinfo = True      # print parameter info with each sequence?
+parinfo = False      # print parameter info with each sequence?
 
 
 ##########
