@@ -11,7 +11,7 @@ from time import perf_counter
 Nlist = range(5,101)
 
 outfile = None
-#outfile = "./out files/OB calc/OBtest_arr.npy"
+#outfile = "./out/OBtest_arr.npy"
 
 
 #   quick function to calculate 2- and 3-body terms, Onon and B : MEMORY INTENSIVE when N is large
