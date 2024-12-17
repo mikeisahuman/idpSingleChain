@@ -1,5 +1,5 @@
 # Object Classes and Scripts for End-to-End Distance
-i.e. getting compaction / swelling factor $x$ from theory related to mean-square end-to-end distance, $\langle R_{ee}^2 \rangle = N\,l\,b\,x$
+i.e. getting compaction / swelling factor $x$ from theory related to mean-square end-to-end distance, $\langle R_{ee}^2 \rangle = N l b x$
 
 ## One sequence analyzer / wrapping
 'Sequence' will load and report basic information for a selected IDP sequence, e.g. referring to a CSV file
