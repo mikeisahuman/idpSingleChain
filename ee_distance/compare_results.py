@@ -51,28 +51,14 @@ w3_str = str(w3).replace('.','')
 
 # FILE SETTINGS
 
-# LL28k set and results
-ref_file = f"./out files/LL 30k sim/with T=37C/solved w2/LL28k_w2_NC_T37_cs{csmm:}_out_{w3_str:}.csv"
+# IDRome set and results
+ref_file = "IDRome28k.csv"
 
-results_dir = f"./out files/LL 30k sim/with T=37C/CNN custom/preds28k 1pt-pred 2pt-min w3={w3:}"
-results_file = path.join(results_dir, f"LL28k_w2_pred_x_NC_T37_cs{csmm:}_full_{w3_str:}.csv")
-#results_file = path.join(results_dir, f"cs{csmm:} shift/LL28k_w2_pred_x_NC_T37_cs{csmm:}_full_{w3_str:}.csv")
-results_file = path.join(results_dir, f"ph{phval:} shift/{'no HCY' if phex_str else 'with HCY'}/LL28k_w2_pred_x_NC_T37_cs{csmm:}_pH{phval:}{phex_str:}_{w3_str:}.csv")
-#results_file = path.join(results_dir, f"cs{csmm:}+ph{phval:} shift/{'no HCY' if phex_str else 'with HCY'}/LL28k_w2_pred_x_NC_T37_cs{csmm:}_pH{phval:}{phex_str:}_{w3_str:}.csv")
-#results_file = path.join(results_dir, f"g1000 pred/LL28k_w2_pred_x_NC_T37_cs{csmm:}_G1000_{w3_str:}.csv")
-#results_file = path.join(results_dir, f"LL_w2_pred_x_NC_T37_cs{csmm:}_leftout_{w3_str:}.csv")
-#results_file = path.join(results_dir, f"LL_w2_pred_x_NC_T37_cs{csmm:}_pH{phval:}{phex_str:}_leftout_{w3_str:}.csv")
+results_dir = "./out/"
+results_file = path.join(results_dir, f"IDRome_out.csv")
 
 N_head = "N"
 SCD_head = "SCD"
-
-#name_head = "seq_name"
-#seq_head = "fasta"
-#w2_head = "w2"
-#
-#ref_name_head = name_head
-#ref_seq_head = seq_head
-#ref_w2_head = w2_head
 
 name_head = "names"
 seq_head = "seqs"
@@ -85,42 +71,11 @@ ref_w2_head = 'w2'
 x_head = "x"
 R_head = "Ree[nm]"
 ref_x_head = "x"
-#ref_R_head = "Ree/nm"           # reference Ree heading from input file (from Lindorff-Larsen)
-#ref_Rg_head = "Rg/nm"
-ref_R_head = "Ree / nm"
-ref_Rg_head = "Rg / nm"
+ref_R_head = "Ree/nm"           # reference Ree heading from input file (from Lindorff-Larsen)
+ref_Rg_head = "Rg/nm"
 
 res_ref_R_head = "ref_" + R_head        # reference Ree heading from results file
 #res_ref_R_head = ref_R_head
-
-
-# for set of wenwei..mittal 15k sequences!       -> call 'all_x(incl_ref=False)'
-###ref_file = "./out files/wenwei/w2 from F5 solver (Rg)/w3=0.2/M15k_w2_T300_l3.8_H0.5_out_02.csv"
-##ref_file = path.join(results_dir, f"M15k_w2_T300_l3.8_H0.5_out_ree_{w3_str}.csv")
-#ref_file = path.join(results_dir, f"M15k_w2_T300_l3.8_H0.5_out_ree_{w3_str}.csv")
-#ref_file = "./out files/wenwei/sequences_15k_ree.csv"
-#results_dir = f"./out files/wenwei/w2 from F5 solver (Ree)/w3={w3}/"
-###results_file = "./out files/wenwei/w2 from F5 solver/M15k_parrot_w2_x_out_01.csv"
-##results_file = "./out files/wenwei/w2 from F5 solver (Rg)/w3=0.2/M15k_full_w2_x_out_02.csv"
-#results_file = path.join(results_dir, f"M15k_w2ee_x_out_{w3_str}.csv")
-##results_file = path.join(results_dir, f"M15k_w2ee_x_leftout_{w3_str}.csv")
-##results_dir = f"./out files/wenwei/ML direct model/"
-##results_file = path.join(results_dir, f"M15k_learnRee_preds.csv")
-
-#name_head = "names"
-#seq_head = "seqs"
-#w2_head = "pred_w2"
-#R_head = "Ree[nm]"
-##R_head = "pred_Ree"
-#x_head = "x"
-#ref_name_head = "INDEX"
-#ref_seq_head = "SEQUENCE"
-#ref_w2_head = "w2"
-#ref_R_head = "Ree"
-#ref_x_head = "x"
-##ref_Rg_head = "Rg"
-#ref_Rg_head = None
-#N_head = "N"
 
 
 ##########
@@ -203,12 +158,6 @@ def plot_Rdiff(resd, var='N', yvar='R', omitNone=True, SAVE=False):
         XLBL = "length N"
         MKSTY = "^"
         MKCOLOR = "tab:purple"
-#        ax.plot([30,30],[Rdiff.min(),Rdiff.max()], LNSTY, color="gray", lw=1.5)
-#        Rdiff_means = []
-#        for n in set(Narr):
-#            Rn = Rdiff[Narr==n]
-#            Rdiff_means.append(Rn.mean())
-#        ax.plot(list(set(Narr)), Rdiff_means, ":", color="black", lw=1.5, zorder=4)
     elif var.lower() == "scd":
         comp_arr = np.asarray(resd['SCD'])
         XLBL = "SCD"
@@ -245,7 +194,6 @@ def plot_Rdiff(resd, var='N', yvar='R', omitNone=True, SAVE=False):
         Rdiff = Rdiff[~checkNone]
 
     ax.plot(comp_arr, Rdiff, MKSTY, color=MKCOLOR, ms=MKSIZE)
-#    ax.plot([comp_arr.min(),comp_arr.max()],[Rdiff.min(),Rdiff.max()], LNSTY)
 
     pr = pearsonr(Rdiff, comp_arr)
     r = pr.statistic
@@ -271,8 +219,6 @@ def plot_corr(resd, var='R', omitNone=True, SAVE=False):
         refv = np.asarray(resd['ref_R'])
         MKSTY = "o"
         MKCOLOR = "tab:blue"
-#        XLBL = "LL  Ree [nm]"
-#        YLBL = "calculated  Ree [nm]"
         XLBL = "simulated  Ree [nm]"
         YLBL = "predicted  Ree [nm]"
     elif var.lower() == 'x':
@@ -287,8 +233,6 @@ def plot_corr(resd, var='R', omitNone=True, SAVE=False):
         refv = np.asarray(resd['ref_Rg'])
         MKSTY = "D"
         MKCOLOR = "mediumvioletred"
-#        XLBL = "LL  Rg [nm]"
-#        YLBL = r"calculated  Rg  (Ree/$\sqrt{6}$)  [nm]"
         XLBL = "simulated  Rg [nm]"
         YLBL = "predicted  Rg  (Ree/$\sqrt{6}$)  [nm]"
     elif var.lower() == 'w2':
@@ -404,7 +348,6 @@ def plot_2sets(resd1, resd2, lb1='150', lb2='50', key='res_R', diff=False, coilg
         var = l1-l2
         var2 = None
         xlbl = (r"$%s^{%s} - %s^{%s}$") % (lbv, lb1, lbv, lb2)
-#        xlbl = (r"${lbv:}^{{lb1:}} - {lbv:}^{{lb2:}}$  [nm]").format(lbv=lbv, lb1=lb1, lb2=lb2)
         if 'R' in key:
             xlbl += "  [nm]"
         color = "tab:red"
