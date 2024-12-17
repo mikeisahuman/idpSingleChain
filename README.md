@@ -26,3 +26,4 @@
 * Huihui & Firman & Ghosh, Modulating charge patterning and ionic strength as a strategy to induce conformational changes in intrinsically disordered proteins (2018), https://doi.org/10.1063/1.5037727
 * Huihui & Ghosh, An analytical theory to describe sequence-specific inter-residue distance profiles for polyampholytes and intrinsically disordered proteins (2020), https://doi.org/10.1063/5.0004619
 * Phillips & Muthukumar & Ghosh, Beyond monopole electrostatics in regulating conformations of intrinsically disordered proteins (2024), https://doi.org/10.1093/pnasnexus/pgae367
+* Houston & Phillips & Torres & Gaalswyk & Ghosh, Physics-Based Machine Learning Trains Hamiltonians and Decodes the Sequence–Conformation Relation in the Disordered Proteome (2024), https://doi.org/10.1021/acs.jctc.4c01114
