@@ -52,9 +52,9 @@ w3_str = str(w3).replace('.','')
 # FILE SETTINGS
 
 # IDRome set and results
-ref_file = "IDRome28k.csv"
+ref_file = "../IDRome_sequences/IDRome28k.csv"
 
-results_dir = "./out/"
+results_dir = "../out/"
 results_file = path.join(results_dir, f"IDRome_out.csv")
 
 N_head = "N"
