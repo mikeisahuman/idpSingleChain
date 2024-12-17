@@ -11,9 +11,9 @@
   - i.e. detailed estimation of chain compaction / swelling between each section of the chain, as a function of sequence and conditions (salt, temperature, pH)
 
 ### Each has two models of underlying physics
-a. Full Ionization model 'xModel'
+* Full Ionization model 'xModel'
   - simple assignment of charge +1 / -1 / 0 for each amino acid in the chain, according to their properties
-b. Counter-ion Condensation / degree of ionization / beyond monopole theory 'doiModel'
+* Counter-ion Condensation / degree of ionization / beyond monopole theory 'doiModel'
   - ionization of amino acids is determined self-consistently with conformation, accounting for dipole interactions
 
 ---
