@@ -1,6 +1,6 @@
 ##  Mike Phillips, 5/16/2024
 ##  Examination of Ree (or x) vs. salt
-##  * Motivated by large responses in a subset of LL28k sequences upon cs 150 -> 50
+##  * Motivated by large responses in a subset of IDRome 28k sequences upon cs 150 -> 50
 
 
 import Sequence as S, xModel as M
@@ -12,26 +12,7 @@ import sys
 import os
 
 
-#P26583_163_209
-#P49736_1_177
-#P55081_1_206
-#Q5SSJ5_423_553
-#Q8WW38_1_101
-#Q9H320_1_206
-
-#Q4G1C9_288_344
-#Q58FF7_193_242
-#Q9H5I5_614_669
-#P29374_271_310
-#Q58FF3_346_399
-#Q9UIF8_1259_1347
-#P38570_146_202
-#P07910_226_306
-
-seqname = None
-#seqname = 'P26583_163_209'
-#seqname = 'Q9H320_1_206'
-#seqname = 'P55081_1_206'
+seqname = None    # sequence name (change here, or use command line)
 
 if len(sys.argv) > 1:
     seqname = sys.argv[1]
@@ -49,16 +30,16 @@ if len(sys.argv) > 2:
 # FILE SETUP
 
 # full set (from which specific seq. can be pulled) ; including information for terminals
-seq_setname = "LL seqs 28k set"
-seq_file = "../out files/LL 30k sim/LL28k_set.csv"
+seq_setname = "IDRome seqs 28k set"
+seq_file = "../IDRome_sequences/IDRome28k.csv"
 name_head, seq_head = 'seq_name', 'fasta'
 Nhead, Chead, IDPhead = 'is_nterm', 'is_cterm', 'is_idp'
 
 # for retrieving w2
-w2_file = "../out files/LL 30k sim/with T=37C/CNN custom/preds28k 1pt-pred 2pt-min w3=0.2/LL_w302_preds.csv"
+w2_file = "../IDRome_sequences/IDRome28k_w2preds_w302.csv"
 w2_name_head = 'names'
-#w2_head = "pred_w2"
-w2_head = "true_w2"
+w2_head = "pred_w2"
+#w2_head = "true_w2"
 
 
 # PARAMETERS
