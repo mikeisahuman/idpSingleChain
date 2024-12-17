@@ -53,11 +53,11 @@ pard = {'l':1, 'lB':lB, 'kappa':kap, 'w2':0, 'w3':w3, 'pH':phval, 'pKex':phex, '
 
 # file to use pre-calculated two/three body terms
 #OBfile = None
-OBfile = "../out files/OB calc/OBfmt_5-1500.npy"
+OBfile = "OBfmt_5-1500.npy"
 
 # LL 28k set
-seq_file = "../out files/LL 30k sim/LL28k_set.csv"
-out_file = f"../out files/LL 30k sim/LL28k_w2_NC_test_{w3_str}.csv"
+seq_file = "../IDRome_sequences/IDRome28k.csv"
+out_file = f"../out/IDRome_w2out_w3{w3_str}.csv"
 name_head = "seq_name"
 seq_head = "fasta"
 x_head = "x"
@@ -69,33 +69,6 @@ Cterm_head = "is_cterm"
 IDP_head = "is_idp"
 
 adjust_NC = True   # apply adjustments to N/C terminals according to spreadsheet?
-
-
-# for set of wenwei..mittal 15k sequences!
-#S.amino_charges.update({'H':0.5})
-#adjust_NC = False
-#
-#seq_file = "../out files/wenwei/sequences_15k_ree.csv"
-#out_file = f"../out files/wenwei/w2 from F5 solver (Ree)/w3={w3}/M15k_w2_test_{w3_str}.csv"
-#
-#name_head = "INDEX"
-#seq_head = "SEQUENCE"
-#x_head = "x"
-#w2_head = "w2"
-#scd_head = "SCD"
-
-
-# for SV set
-#adjust_NC = False
-#
-#seq_file = "../../Dist_Ree/out/ML+theory/SVset/w2pred_02/Ree_vals.csv"
-#out_file = f"../../Dist_Ree/out/ML+theory/SVset/w2true_02/w2_true_02.csv"
-#
-#name_head = "name"
-#seq_head = "seq"
-#x_head = "x_sim"
-#w2_head = "w302_w2_true"
-#scd_head = "SCD"
 
 
 ##########
