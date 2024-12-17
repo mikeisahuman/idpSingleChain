@@ -1,6 +1,6 @@
 ##  Mike Phillips, 5/1/2024
 ##  Examination of Ree (or x) vs. pH
-##  * Motivated by coil-globule transition seen in a subset of LL28k sequences upon pH7->4
+##  * Motivated by coil-globule transition seen in a subset of IDRome 28k sequences upon pH7->4
 
 
 import Sequence as S, xModel as M
@@ -11,10 +11,6 @@ import myPlotOptions as mpo
 import sys
 import os
 
-
-#seqname = 'P30260_769_824'
-#seqname = 'Q08499_714_809'
-seqname = 'P07196_396_543'
 
 if len(sys.argv) > 1:
     seqname = sys.argv[1]
@@ -27,18 +23,14 @@ if len(sys.argv) > 2:
 
 # FILE SETUP
 
-## set of all 589 sequences  (names and 'x' results only)
-#seq_file = "../out files/LL 30k sim/with T=37C/CNN custom/preds28k 1pt-pred 2pt-min w3=0.2/ph4 shift/no HCY/coil-glob_finalsel.npy"
-#seq_df = pd.DataFrame(np.load(seq_file, allow_pickle=True).item())
-
 # full set (from which specific seq. can be pulled) ; including information for terminals
-seq_setname = "LL seqs 28k set"
-seq_file = "../out files/LL 30k sim/LL28k_set.csv"
+seq_setname = "IDRome seqs 28k set"
+seq_file = "../IDRome_sequences/IDRome28k.csv"
 name_head, seq_head = 'seq_name', 'fasta'
 Nhead, Chead, IDPhead = 'is_nterm', 'is_cterm', 'is_idp'
 
 # for retrieving w2
-w2_file = "../out files/LL 30k sim/with T=37C/CNN custom/preds28k 1pt-pred 2pt-min w3=0.2/LL_w302_preds.csv"
+w2_file = "../IDRome_sequences/IDRome_w2preds_w302.csv"
 w2_name_head = 'names'
 w2_head = "pred_w2"
 #w2_head = "true_w2"
@@ -71,8 +63,6 @@ seq_df = pd.read_csv(seq_file)
 s_match = (seq_df[name_head] == seqname)
 s_aminos = seq_df[seq_head][s_match].iloc[0]
 [Nincl, Cincl, IDP] = [seq_df[hd][s_match].iloc[0] for hd in (Nhead, Chead, IDPhead)]
-#[Nincl, Cincl, IDP] = [eval(seq_df[hd][s_match].iloc[0].capitalize()) for hd in (Nhead, Chead, IDPhead)]
-#Nincl, Cincl, IDP = seq_df[Nhead][s_match].iloc[0], seq_df[Chead][s_match].iloc[0], seq_df[IDPhead][s_match].iloc[0]
 if (not Nincl) and (not IDP):
     pKex.append('Nterm')
 else:
@@ -102,7 +92,6 @@ def pHplot(resd, SAVE=SAVE):
     ax.plot(resd['pH'], resd['x'])
     ax.set_xlabel("pH")
     ax.set_ylabel(r"$x$")
-    #ax.set_ylabel(r"expansion/compaction factor  $x$")
     ax.set_title(seqname + "\n")
     fig.tight_layout()
     if SAVE:
@@ -120,7 +109,6 @@ def FEplot(xlist=np.linspace(1e-2,5,100), pH=7, SAVE=SAVE):
     Flist = [ md.F(x, **md.pars) for x in xlist ]
     fig,ax = plt.subplots(figsize=(9.3,7))
     ax.plot(xlist, Flist)
-#    ymin,ymax = ax.get_ylim()
     ymin = min(Flist)
     ax.set_ylim(ymin-0.1*abs(ymin),ymin+0.25*abs(ymin))
     ax.set_xlabel(r"$x$")
