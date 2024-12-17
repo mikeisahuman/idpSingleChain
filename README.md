@@ -6,15 +6,15 @@
 
 ### Consists of two main sectors:
 1. Mean-square end-to-end distance $\langle R_{ee}^2 \rangle$
-  - i.e. overall estimation of chain compaction / swelling (conformation) as a function of sequence and conditions (salt, temperature, pH)
-2. Full distance map between any two amino acids / reisdues in the chain
-  - i.e. detailed estimation of chain compaction / swelling between each section of the chain, as a function of sequence and conditions (salt, temperature, pH)
+   i.e. overall estimation of chain compaction / swelling (conformation) as a function of sequence and conditions (salt, temperature, pH)
+2. Full distance map between any two amino acids / reisdues in the chain $\langle R_{ij}^2 \rangle$
+   i.e. detailed estimation of chain compaction / swelling between each section of the chain, as a function of sequence and conditions (salt, temperature, pH)
 
 ### Each has two models of underlying physics
 * Full Ionization model 'xModel'
-  - simple assignment of charge +1 / -1 / 0 for each amino acid in the chain, according to their properties
+   simple assignment of charge +1 / -1 / 0 for each amino acid in the chain, according to their properties
 * Counter-ion Condensation / degree of ionization / beyond monopole theory 'doiModel'
-  - ionization of amino acids is determined self-consistently with conformation, accounting for dipole interactions
+   ionization of amino acids is determined self-consistently with conformation, accounting for dipole interactions
 
 ---
 
