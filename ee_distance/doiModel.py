@@ -447,7 +447,7 @@ class doiModel:
         # ensure use of given salt value
         pdict.update( {"cs":cs_calib} )
         # given 'w2' used as seed / initial point
-        w2_init = pars["w2"]
+        w2_init = pdict["w2"]
         # make function of 'w2' only, which will be numerically solved for zero by repeated optimization
         def w2Func(w2):
             # update parameter set first
