@@ -1,5 +1,7 @@
 # idpSingleChain
 
+Tools for analyzing isolated protein sequences.
+
 ---
 
 ## Intrinsically Disordered Protein (IDP) sequence-specific physics theory for a Single Chain
