@@ -25,7 +25,7 @@ if len(sys.argv) > 2:
 
 DSAVE = None    # directory for saving resulting arrays (x or Ree)
 
-if len(sys.argv) > 2:
+if len(sys.argv) > 3:
     DSAVE = sys.argv[3]
 
 # FILE SETUP
