@@ -53,8 +53,8 @@ delta = 1.3 # dielectric mismatch
 T = 310     # temperature [K]
 csmm = 150  # salt concentration [mM]
 cpmm = 1    # protein residue/monomer concentration [mM]
-w2_def = 0  # default value for w2
 w3 = 0.2    # 3-body term
+w2_def = 0  # default value for 2-body term (overridden if 'w2_file' provided)
 
 lB_tilde = lambda T: (1.8743996063760822) * (293)/(T) * (3.8/b)     # dim-less Bjerrum length [from Temp. in K, 'b' in A]
 cs_tilde = lambda cs: 6.022e-7 * np.power(b,3) * cs                 # dim.-less ionic (~salt) concentration [from cs in milli-Molar, b in A]
