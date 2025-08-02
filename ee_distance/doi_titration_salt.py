@@ -160,6 +160,7 @@ xres = salt_plot(rd)
 Rres = salt_plot(rd, asRee=True)
 
 if DSAVE:
+    np.save(os.path.join(DSAVE, f"alPM_salt_{seqname:}.npy"), np.array(zip(rd['pmx'][:,0],rd['pmx'][:,1])))
     np.save(os.path.join(DSAVE, f"x_salt_{seqname:}.npy"), xres)
     np.save(os.path.join(DSAVE, f"Ree_salt_{seqname:}.npy"), Rres)
     np.save(os.path.join(DSAVE, f"salt_list.npy"), rd['csmm'])
