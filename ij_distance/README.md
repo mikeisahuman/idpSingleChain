@@ -13,7 +13,7 @@ i.e. getting compaction / swelling factor $x_{ij}$ between *any* pair of residue
 * 'many' scripts calculate the same quantity under fixed conditions for a large number of sequences, e.g. the 28058 that comprise the human IDRome; for one or several $i,j$ pairs
 * 'xij_map' script builds the entire inter-residue profile map, across all $i,j$ pairs, under fixed conditions
 * 'decoration_matrices' script builds interaction matrices $SHDM$, $SCDM$, $SCDDM$, $SDDM$, $T_{ij}$ ; does not perform minimization for $x_{ij}$
-* 'extract_w2ij' script calculates the necessary two-body interaction $\omega_2$ at each $i,j$ based on given $x_{ij}$ map, under fixed conditions
+* 'extract_w2ij' script calculates the necessary two-body interaction $\omega_2$ to match the given $x_{ij}$ map at every $i,j$, under fixed conditions
 
 ## Plotters
 * 'xij_plotter_module' provides a suite of tools for loading, normalizing, and plotting $x_{ij}$ map(s) from previous calculations (or simulation)
