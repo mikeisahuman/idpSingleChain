@@ -1,5 +1,5 @@
-# Object Classes and Scripts for Inter-Residue Distance, between *any* pair of residues $i,j$
-i.e. getting compaction / swelling factor $x_{ij}$ from theory related to mean-square inter-residue distance, $\langle R_{ij}^2 \rangle = |i-j| l b x_{ij}$
+# Object Classes and Scripts for Inter-Residue Distance
+i.e. getting compaction / swelling factor $x_{ij}$ between *any* pair of residues $i,j$ from theory related to mean-square inter-residue distance, $\langle R_{ij}^2 \rangle = |i-j| l b x_{ij}$
 
 ## One sequence analyzer / wrapping
 'Sequence' will load and report basic information for a selected IDP sequence, e.g. referring to a CSV file
